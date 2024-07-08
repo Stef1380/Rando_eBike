@@ -1,0 +1,17 @@
+<h1>mon vélo</h1>
+<%= @bike.name %>
+<%= @bike.description %>
+
+<%= link_to "retour à la liste des vélos", root_path %>
+<%= link_to "réserver ce vélo", new_bike_booking_path(@bike) %>
+<%= link_to "delete", bike_path(@bike), data: { turbo_method: :delete, turbo_confirm: "are you sure?" } %>
+
+
+<h2>Bookings for this bike:</h2>
+<ul>
+  <% @bookings.each do |booking| %>
+    <li><%= booking.start_date %> - <%= booking.end_date %> - <%= booking.user.email %>
+    <%= link_to "delete", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "are you sure?" } %>
+    </li>
+  <% end %>
+</ul>

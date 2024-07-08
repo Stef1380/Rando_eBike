@@ -1,0 +1,19 @@
+<h1> tu es bien sur la page index de tes velos</h1>
+
+<% @bikes.each do |bike| %>
+  <div class="card-product">
+    <%= link_to bike_path(bike) do %>
+      <div class="card-product-infos">
+        <% if bike.photo.attached? %>
+          <%= image_tag bike.photo %>
+        <% else %>
+          <%= image_tag 'noveloimg.jpg' %>
+        <% end %>
+        <strong><%= bike.name %></strong>
+        <p><%= bike.description %></p>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<%= link_to "Ajouter un vélo", new_bike_path, class: "button" %>

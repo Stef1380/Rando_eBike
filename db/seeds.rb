@@ -7,3 +7,15 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+puts "starting seed"
+
+User.create!(email: "stef@me.fr", password: "azerty")
+
+puts "user ok"
+
+Bike.create!(name: "VTT canondale", description: "adapté à tout les terrains", user: User.first)
+Bike.create!(name: "VTT cube", description: "pour les puristes", user: User.first)
+Bike.create!(name: "VTT specialized", description: "descente tout droit, il craint rien ", user: User.first)
+Bike.create!(name: "VTT moustache", description: "frisez vous", user: User.first)
+
+puts "all ok"
